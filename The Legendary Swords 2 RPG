@@ -1,0 +1,321 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "The Legendary Swords 2 RPG", HidePremium = false, SaveConfig = true, IntroEnabled = false})
+
+getgenv().SP = 0
+getgenv().MONEY = 0
+getgenv().SKYSHARDS = 0
+getgenv().autoRebirth = false
+
+local Tab1 = Window:MakeTab({
+	Name = "Skillpoints",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab2 = Window:MakeTab({
+	Name = "Stats",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Rebirth",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab4 = Window:MakeTab({
+	Name = "Weapons",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab5 = Window:MakeTab({
+	Name = "Armor",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab6 = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--Tab 1
+
+Tab1:AddButton({
+	Name = "You get 10 SP!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 0,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab1:AddButton({
+	Name = "You get 100 SP!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 0,[4] = 100}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab1:AddButton({
+	Name = "You get 1000 SP!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 0,[4] = 1000}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab1:AddButton({
+	Name = "You get 999999 SP!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 0,[4] = 999999}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab1:AddLabel("do not exaggerate")
+
+Tab1:AddTextbox({
+	Name = "Custom SP",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		getgenv().SP = Value
+	end	  
+})
+
+Tab1:AddButton({
+	Name = "You get Custom SP!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 0,[4] = getgenv().SP}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+--Tab 2
+
+Tab2:AddButton({
+	Name = "You get Inf Strength!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 1000000000000,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "You get Inf Money gain!",
+	Callback = function()
+        local args = {[1] = "Loot",[2] = "One",[3] = 1000000000000,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "You get Inf Health!",
+	Callback = function()
+        local args = {[1] = "Health",[2] = "One",[3] = 1000000000000000,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Reset Strength!",
+	Callback = function()
+        local args = {[1] = "Strength",[2] = "One",[3] = 1,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Reset Money gain!",
+	Callback = function()
+        local args = {[1] = "Loot",[2] = "One",[3] = 1,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Reset Health!",
+	Callback = function()
+        local args = {[1] = "Health",[2] = "One",[3] = 1,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Get Money",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		getgenv().MONEY = (Value)
+	end	  
+})
+
+Tab2:AddButton({
+	Name = "Get Gold (1)!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Get Gold (2)!",
+	Callback = function()
+        local args = {[1] = "Sell",[2] = "Gold",[3] = getgenv().MONEY,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Get Skyshards",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		getgenv().SKYSHARDS = (Value)
+	end	  
+})
+
+Tab2:AddButton({
+	Name = "Get Skyshards (1)!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Shards",[3] = 0,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+    end    
+})
+
+Tab2:AddButton({
+	Name = "Get Skyshards (2)!",
+	Callback = function()
+        local args = {[1] = "Sell",[2] = "Shards",[3] = getgenv().SKYSHARDS,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+    end    
+})
+
+--Tab 3
+
+function autoRebirth()
+    spawn(function ()
+        while getgenv().autoRebirth == true do
+            game.Players.LocalPlayer.RemoteFunctions.RebirthSystem:FireServer()
+            wait(1)
+        end
+    end)
+end
+
+Tab3:AddButton({
+	Name = "Rebirth!",
+	Callback = function()
+        game.Players.LocalPlayer.RemoteFunctions.RebirthSystem:FireServer()
+  	end    
+})
+
+Tab3:AddToggle({
+	Name = "Auto Rebirth!",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoRebirth = bool;
+        if bool then
+            autoRebirth()
+        end
+	end  
+})
+
+--Tab 4
+
+Tab4:AddButton({
+	Name = "Get Dark Axe!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Dark Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Shai Sword!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Shai Sword"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Laser Sword!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Mystic Sword"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Exotic Pacifer!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Exotic Pacifer"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Redcliff Pacifier!",
+	Callback = function()
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Redcliff Pacifier"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+  	end    
+})
+
+--Tab 5
+
+Tab5:AddButton({
+	Name = "Equip Dark Samurai!",
+	Callback = function()
+        local args = {[1] = "Dark Samurai"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Phoenix Guard!",
+	Callback = function()
+        local args = {[1] = "Phoenix Guard"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Dark Overseer!",
+	Callback = function()
+        local args = {[1] = "Dark Overseer"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Iron!",
+	Callback = function()
+        local args = {[1] = "Iron"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Fire Forged!",
+	Callback = function()
+        local args = {[1] = "Fire Forged"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Elite!",
+	Callback = function()
+        local args = {[1] = "Elite"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Sapphire!",
+	Callback = function()
+        local args = {[1] = "Sapphire"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Korblox Ice!",
+	Callback = function()
+        local args = {[1] = "Korblox Ice"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Equip Doom Bringer!",
+	Callback = function()
+        local args = {[1] = "Doom Bringer"}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+  	end    
+})
+
+--Tab 6
+
+Tab6:AddButton({
+	Name = "Destroy Gui!",
+	Callback = function()
+        game:GetService("CoreGui").Orion:Destroy()
+  	end    
+})
