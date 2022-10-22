@@ -1,0 +1,70 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Field Goal Simulator", HidePremium = false, SaveConfig = true, IntroEnabled = false})
+
+OrionLib:MakeNotification({
+	Name = "Field Goal Simulator",
+	Content = "Script for Field Goal Simulator loaded",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab2 = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddLabel("Default for Perfect Kick is f")
+
+Tab:AddBind({
+	Name = "Perfect Kick",
+	Default = Enum.KeyCode.F,
+	Hold = false,
+	Callback = function()
+		kick()
+	end
+})
+
+Tab:AddToggle({
+	Name = "Auto Kick",
+	Default = false,
+	Callback = function(bool)
+        getgenv().autokick = bool;
+        if bool then
+            autokick()
+        end
+	end
+})
+
+Tab2:AddButton({
+	Name = "!Destroy Gui!",
+	Callback = function()
+        OrionLib:Destroy()
+  	end
+})
+
+function kick()
+    local args = {[1] = "Start"}
+    game:GetService("Players").LocalPlayer.Character.Ball.ServerEvent:FireServer(unpack(args))
+    local args = {[1] = "Accuracy",[2] = 1}
+    game:GetService("Players").LocalPlayer.Character.Ball.ServerEvent:FireServer(unpack(args))
+    wait(1)
+end
+
+
+getgenv().autokick = false;
+function autokick()
+    while getgenv().autokick == true do
+        local args = {[1] = "Start"}
+        game:GetService("Players").LocalPlayer.Character.Ball.ServerEvent:FireServer(unpack(args))
+        local args = {[1] = "Accuracy",[2] = 1}
+        game:GetService("Players").LocalPlayer.Character.Ball.ServerEvent:FireServer(unpack(args))
+        wait(1)
+    end
+end
