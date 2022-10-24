@@ -1,0 +1,165 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Roblox but you get smarter every second", HidePremium = false, SaveConfig = true, IntroEnabled = false})
+
+OrionLib:MakeNotification({
+	Name = "Use On Own Risk",
+	Content = "Last Update 25.10.22",
+	Image = "rbxassetid://4483345998",
+	Time = 8
+})
+
+local Tab = Window:MakeTab({
+	Name = "Gems Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab2 = Window:MakeTab({
+	Name = "Pets",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Rebirth",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Tab4 = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--Tab 1
+
+Tab:AddToggle({
+	Name = "Auto Click Gems",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoclicker = bool
+        if bool then
+            autoclicker()
+        end
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Auto Farm Gems",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoFarmAll = bool
+        if bool then
+            autoFarmAll()
+        end
+	end    
+})
+
+--Tab 2
+
+Tab2:AddDropdown({
+	Name = "Choose Egg",
+	Default = "1",
+	Options = {"Z1", "Z2","Z3","Z4","Z5","Z6"},
+	Callback = function(Value)
+		getgenv().ChoosenEgg = Value
+	end    
+})
+
+
+Tab2:AddToggle({
+	Name = "Auto Buy Pets Slow",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoBuyPets = bool
+        if bool then
+            autoBuyPetsslow()
+        end
+	end    
+})
+
+Tab2:AddToggle({
+	Name = "Auto Buy Pets Fast",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoBuyPets = bool
+        if bool then
+            autoBuyPetsfast()
+        end
+	end    
+})
+--Tab 3
+
+Tab3:AddToggle({
+	Name = "Auto Rebirth",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoRebirth = bool
+        if bool then
+            autoRebirth()
+        end
+	end    
+})
+
+--Tab 4
+Tab4:AddButton({
+	Name = "Destroy Gui!",
+	Callback = function()
+        game:GetService("CoreGui").Orion:Destroy()
+  	end
+})
+
+--getgenv
+getgenv().autoclicker = false;
+getgenv().autoFarmAll = false;
+getgenv().autoBuyPets = false;
+getgenv().ChoosenEgg = nil;
+getgenv().autoRebirth = false;
+--functions
+function autoclicker()
+    while getgenv().autoclicker == true do
+        game:GetService("ReplicatedStorage").Events.processClicks:FireServer()
+        wait()
+    end
+end
+
+function autoBuyPetsslow()
+    while getgenv().autoBuyPets == true do
+        local args = {[1] = "Single",[2] = getgenv().ChoosenEgg,[3] = false,[4] = {},[5] = false}
+        game:GetService("ReplicatedStorage").Events.petHatching:FireServer(unpack(args))        
+        wait(2)
+    end
+end
+
+function autoBuyPetsfast()
+    while getgenv().autoBuyPets == true do
+        local args = {[1] = "Single",[2] = getgenv().ChoosenEgg,[3] = false,[4] = {},[5] = false}
+        game:GetService("ReplicatedStorage").Events.petHatching:FireServer(unpack(args))        
+        wait()
+    end
+end
+
+print("Made By crLaros")
+
+function autoFarmAll()
+    while wait() do
+        if not getgenv().autoFarmAll then break end
+        for i, v in pairs(workspace:GetDescendants()) do
+            if v.Name == "TouchInterest" and v.Parent then
+                firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0)
+                wait()
+                firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1)
+                wait()
+            end
+        end
+    end
+end
+
+function autoRebirth()
+    while getgenv().autoRebirth == true do
+        local args = {[1] = game:GetService("Players").LocalPlayer}
+        game:GetService("ReplicatedStorage").Events.rebirth:FireServer(unpack(args))
+        wait()
+    end
+end
