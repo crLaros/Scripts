@@ -440,6 +440,7 @@ Tab7:AddButton({
 
 --Tab 8 Misc
 getgenv().farmores = false
+getgenv().noclip = false
 
 Tab8:AddSlider({
 	Name = "Change Walk Speed",
@@ -469,6 +470,18 @@ Tab8:AddSlider({
 	end
 })
 
+Tab8:AddBind({
+	Name = "Bind For Noclip",
+	Default = Enum.KeyCode.E,
+	Hold = true,
+	Callback = function(bool)
+		getgenv().noclip = bool
+		if bool then
+			noclip()
+		end
+	end
+})
+
 Tab8:AddToggle({
 	Name = "Farm Ores",
 	Default = false,
@@ -479,6 +492,22 @@ Tab8:AddToggle({
 		end
 	end
 })
+
+function noclip()
+	if getgenv().noclip == true then
+		local loop game:GetService('RunService').Stepped:connect(function()
+			if getgenv().noclip then
+				for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+					if v:IsA("BasePart") then
+						if v.CanCollide ~= not getgenv().noclip then
+						v.CanCollide = not getgenv().noclip
+						end
+					end
+				end
+			end
+		end)
+	end
+end
 
 function FarmOres()
 	while wait() do
