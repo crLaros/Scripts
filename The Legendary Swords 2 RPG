@@ -3,74 +3,78 @@ local Window = OrionLib:MakeWindow({Name = "The Legendary Swords 2 RPG", HidePre
 
 local Tab1 = Window:MakeTab({
 	Name = "Skillpoints",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab2 = Window:MakeTab({
 	Name = "Stats",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab3 = Window:MakeTab({
 	Name = "Rebirth",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab4 = Window:MakeTab({
 	Name = "Weapons",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab5 = Window:MakeTab({
 	Name = "Armor",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab6 = Window:MakeTab({
 	Name = "Currencies",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab7 = Window:MakeTab({
 	Name = "Teleport",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
 local Tab8 = Window:MakeTab({
-	Name = "Settings",
-	Icon = "rbxassetid://4483345998",
+	Name = "Misc",
+	Icon = "rbxassetid://4384392464",
 	PremiumOnly = false
 })
 
-
+local Tab9 = Window:MakeTab({
+	Name = "Settings",
+	Icon = "rbxassetid://4384392464",
+	PremiumOnly = false
+})
 
 --Tab 1 Skillpoints
 
-getgenv().SP1 = nil
-getgenv().SP2 = nil
+local SP1 = nil
+local SP2 = nil
 
 Tab1:AddDropdown({
 	Name = "Choose SP",
-	Default = "1",
+	Default = "",
 	Options = {"10", "100","1000","10000","999999"},
 	Callback = function(Value)
-		getgenv().SP1 = Value
+		SP1 = Value
 	end
 })
 
 Tab1:AddButton({
 	Name = "Set SP",
 	Callback = function()
-        getgenv().StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
+        StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
         wait(0.2)
-        local args = {[1] = "Strength",[2] = "One",[3] = getgenv().StrengthFirst,[4] = getgenv().SP1}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Strength",[2] = "One",[3] = StrengthFirst,[4] = SP1}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
@@ -81,55 +85,57 @@ Tab1:AddTextbox({
 	Default = "",
 	TextDisappear = true,
 	Callback = function(Value)
-        getgenv().StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
+        StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
         wait(0.1)
-		getgenv().SP2 = Value
+		SP2 = Value
 	end
 })
 
 Tab1:AddButton({
 	Name = "Set Custom SP",
 	Callback = function()
-        local args = {[1] = "Strength",[2] = "One",[3] = getgenv().StrengthFirst,[4] = getgenv().SP2}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Strength",[2] = "One",[3] = StrengthFirst,[4] = SP2}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 --Tab 2 Stats
-getgenv().StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
-getgenv().HealthFirst = game.Players.LocalPlayer.PlayerData.Health.Value
-getgenv().GoldIncreaseFirst = game.Players.LocalPlayer.PlayerData.GoldIncrease.Value
-getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+local StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
+local HealthFirst = game.Players.LocalPlayer.PlayerData.Health.Value
+local GoldIncreaseFirst = game.Players.LocalPlayer.PlayerData.GoldIncrease.Value
+local UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+getgenv().autoMininglvl = false
+
 
 Tab2:AddButton({
-	Name = "You get Inf Strength",
+	Name = "You get loads of Strength",
 	Callback = function()
-        getgenv().StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
+        StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
         wait(0.1)
-        getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+        UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Strength",[2] = "One",[3] = 10000000000000000,[4] = getgenv().UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Strength",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 Tab2:AddButton({
-	Name = "You get Inf Health",
+	Name = "You get loads of Health",
 	Callback = function()
-        getgenv().HealthFirst = game.Players.LocalPlayer.PlayerData.Health.Value
+        HealthFirst = game.Players.LocalPlayer.PlayerData.Health.Value
         wait(0.1)
-        getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+        UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Health",[2] = "One",[3] = 10000000000000000,[4] = getgenv().UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Health",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 Tab2:AddButton({
-	Name = "You get Inf Money gain",
+	Name = "You get loads of Money gain",
 	Callback = function()
-        getgenv().GoldIncreaseFirst = game.Players.LocalPlayer.PlayerData.GoldIncrease.Value
+        GoldIncreaseFirst = game.Players.LocalPlayer.PlayerData.GoldIncrease.Value
         wait(0.1)
-        getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+        UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Loot",[2] = "One",[3] = 10000000000000000,[4] = getgenv().UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Loot",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
@@ -138,27 +144,27 @@ Tab2:AddButton({
 Tab2:AddButton({
 	Name = "Reset Strength to 10",
 	Callback = function()
-        getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+        UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Strength",[2] = "One",[3] = 10,[4] = getgenv().UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Strength",[2] = "One",[3] = 10,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 Tab2:AddButton({
 	Name = "Reset Health to 10",
 	Callback = function()
-        getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+        UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Health",[2] = "One",[3] = 10,[4] = getgenv().UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Health",[2] = "One",[3] = 10,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 Tab2:AddButton({
 	Name = "Reset Money gain to 10",
 	Callback = function()
-        getgenv().UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
+        UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Loot",[2] = "One",[3] = 10,[4] = getgenv().UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Loot",[2] = "One",[3] = 10,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
@@ -166,24 +172,43 @@ Tab2:AddButton({
 	Name = "Reset All Stats To 10",
 	Callback = function()
         local args = {[1] = "Strength",[2] = "One",[3] = 10,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
-        wait(1)
+        wait(0.5)
         local args = {[1] = "Health",[2] = "One",[3] = 10,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
-        wait(1)
+        wait(0.5)
         local args = {[1] = "Loot",[2] = "One",[3] = 10,[4] = 10}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
+
+Tab2:AddToggle({
+	Name = "Auto Upgrade Mining Level",
+	Default = false,
+	Callback = function(bool)
+		getgenv().autoMininglvl = bool;
+        if bool then
+            autoMininglvl()
+        end
+	end
+})
+
+function autoMininglvl()
+	while getgenv().autoMininglvl == true do
+		local args = {[1] = 0}
+		game:GetService("Players").LocalPlayer.RemoteFunctions.MiningLvlSystem:FireServer(unpack(args))
+		wait(0.5)
+	end
+end
+
+print("Made by crLaros")
 
 --Tab 3 Rebirth
 
 getgenv().autoRebirth = false
 
 function autoRebirth()
-    spawn(function ()
-        while getgenv().autoRebirth == true do
-            game.Players.LocalPlayer.RemoteFunctions.RebirthSystem:FireServer()
-            wait(0.5)
-        end
-    end)
+    while getgenv().autoRebirth == true do
+        game.Players.LocalPlayer.RemoteFunctions.RebirthSystem:FireServer()
+        wait(0.5)
+    end
 end
 
 Tab3:AddButton({
@@ -206,56 +231,56 @@ Tab3:AddToggle({
 
 --Tab 4 Weapons
 
-getgenv().Swords = nil
+local Swords = nil
 
 
 Tab4:AddDropdown({
 	Name = "Choose Weapon",
 	Default = "",
-	Options = {"Dark Axe", "Shai Sword","Mystic Sword","Exotic Pacifer","Redcliff Pacifier"},
+	Options = {"Dark Axe", "Shai Sword","Mystic Sword","Exotic Pacifer","Redcliff Pacifier","Blaze","Wing Slasher","Orinthian Mace","Winter Blaze","Inferno Claymore","Shimmer Hammer","Space Blade","Ghost Dagger","Eternal Abyss","Chaos Blade","Alpha Domain","Diamond Edge","Earth Sword","Dragon Claw","Ice Knight","Flame Knight","Lieutenant's Cutlass","Bombastic Blade","Tribal Spear","Bluesteel Aquatica","Magma Spear","Blood Lust","Crimson Wrath","Dark Knight","Divinity","Overseer Hammer","Dragon Scale","Orinthian Blade"},
 	Callback = function(Value)
-		getgenv().Swords1 = Value
+		Swords = Value
 	end
 })
 
 Tab4:AddButton({
 	Name = "Get Weapon",
 	Callback = function()
-        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = getgenv().Swords1}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+        local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = Swords}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
   	end
 })
 
 --Tab 5 Armor
 
-getgenv().armor = nil
+local armor = nil
 
 Tab5:AddDropdown({
 	Name = "Choose Armor",
 	Default = "",
 	Options = {"Dark Samurai", "Phoenix Guard","Dark Overseer","Iron","Fire Forged","Elite","Sapphire","Korblox Ice","Doom Bringer"},
 	Callback = function(Value)
-		getgenv().armor = Value
+		armor = Value
 	end
 })
 
 Tab5:AddButton({
 	Name = "Equip Armor",
 	Callback = function()
-        local args = {[1] = getgenv().armor}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
+        local args = {[1] = armor}; game:GetService("Players").LocalPlayer.RemoteFunctions.ArmorSystem:FireServer(unpack(args))
   	end
 })
 
 --Tab 6 Currencies
-getgenv().MONEY = nil
-getgenv().SKYSHARDS = nil
+local MONEY = nil
+local SKYSHARDS = nil
 
 Tab6:AddTextbox({
 	Name = "How Much Money",
 	Default = "",
 	TextDisappear = false,
 	Callback = function(Value)
-		getgenv().MONEY = (Value)
-        getgenv().MONEY = getgenv().MONEY * 2
+		MONEY = (Value)
+        MONEY = MONEY * 2
 	end
 })
 
@@ -264,7 +289,7 @@ Tab6:AddButton({
 	Callback = function()
         local args = {[1] = "Buy",[2] = "Gold",[3] = 0,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
         wait(2)
-        local args = {[1] = "Sell",[2] = "Gold",[3] = getgenv().MONEY,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+        local args = {[1] = "Sell",[2] = "Gold",[3] = MONEY,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
   	end
 })
 
@@ -274,8 +299,8 @@ Tab6:AddTextbox({
 	Default = "",
 	TextDisappear = false,
 	Callback = function(Value)
-		getgenv().SKYSHARDS = (Value)
-        getgenv().SKYSHARDS = getgenv().SKYSHARDS * 2
+		SKYSHARDS = (Value)
+        SKYSHARDS = SKYSHARDS * 2
 	end
 })
 
@@ -284,35 +309,195 @@ Tab6:AddButton({
 	Callback = function()
         local args = {[1] = "Buy",[2] = "Shards",[3] = 0,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
         wait(2)
-        local args = {[1] = "Sell",[2] = "Shards",[3] = getgenv().SKYSHARDS,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
+        local args = {[1] = "Sell",[2] = "Shards",[3] = SKYSHARDS,[4] = "Rusty Axe"}; game:GetService("Players").LocalPlayer.RemoteFunctions.SwordSystem:FireServer(unpack(args))
     end
 })
 
 --Tab 7 Teleport
-Tab7:AddButton({
-	Name = "Teleport To Shop 1",
-	Callback = function()
-        game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-736, 14, -614))
-  	end
+
+local TeleSpot = nil
+local TeleEnemy = nil
+local TeleBoss = nil
+
+Tab7:AddLabel("Spots")
+
+Tab7:AddDropdown({
+	Name = "Choose Point",
+	Default = "",
+	Options = {"Shop 1", "Shop 2","Shop 3","Guild","Tower","Mine","Forbidden Temple","Devils Fortress","Ice Realm"},
+	Callback = function(Value)
+		TeleSpot = Value
+	end
 })
 
 Tab7:AddButton({
-	Name = "Teleport To Shop 2",
+	Name = "Teleport to Spot",
 	Callback = function()
-        game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-856, 42, 439))
+      	if TeleSpot == "Shop 1" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-732, 14, -616))
+		elseif TeleSpot == "Shop 2" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-862, 41, 442))
+		elseif TeleSpot == "Shop 3" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(791, 15, 590))
+		elseif TeleSpot == "Guild" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-325, 17, 696))
+		elseif TeleSpot == "Tower" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(555, 68, -767))
+		elseif TeleSpot == "Forbidden Temple" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-852, 39, 766))
+		elseif TeleSpot == "Ice Realm" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-76, 20, 910))
+		elseif TeleSpot == "Devils Fortress" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(750, 26, 892))
+		elseif TeleSpot == "Mine" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-543, 10, -666))
+		end
   	end
+})
+
+Tab7:AddLabel("Enemies")
+
+Tab7:AddDropdown({
+	Name = "Choose Point",
+	Default = "",
+	Options = {"Tower Bandit Lv.400","Lieutenant Pirate Lv.400","Magma Bandit Lv.500","Fire Bandit Lv.550","Water Dweller Lv.2500","Blood Lust Lv.2550","Deadly Explorer Lv.4500","Ancient Dweller Lv.6400","Mystic Explorer Lv.15500","Sea Crawler Lv.25000","Exotic Pacifier Lv.99999"},
+	Callback = function(Value)
+		TeleEnemy = Value
+	end
 })
 
 Tab7:AddButton({
-	Name = "Teleport To Shop 3",
+	Name = "Teleport to Enemy",
 	Callback = function()
-        game.Players.LocalPlayer.Character:MoveTo(Vector3.new(785, 15, 586))
+      	if TeleEnemy == "Deadly Explorer Lv.4500" then
+		  game.Players.LocalPlayer.Character:MoveTo(Vector3.new(101, 49, -817))
+		elseif TeleEnemy == "Tower Bandit Lv.400" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-406, 155, -690))
+		elseif TeleEnemy == "Fire Bandit Lv.550" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-270, 61, -935))
+		elseif TeleEnemy == "Exotic Pacifier Lv.99999" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-23, 33, 195))
+		elseif TeleEnemy == "Lieutenant Pirate Lv.400" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(14, -1, 289))
+		elseif TeleEnemy == "Mystic Explorer Lv.15500" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(928, 42, 210))
+		elseif TeleEnemy == "Magma Bandit Lv.500" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-419, 77, -677))
+		elseif TeleEnemy == "Water Dweller Lv.2500" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-880, 1, 414))
+		elseif TeleEnemy == "Blood Lust Lv.2550" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-32, 166, 120))
+		elseif TeleEnemy == "Ancient Dweller Lv.6400" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-926, 74, 822))
+		elseif TeleEnemy == "Sea Crawler Lv.25000" then
+			game.Players.LocalPlayer.Character:MoveTo(Vector3.new(859, -34, -122))
+		end
   	end
 })
 
---Tab 8 Settings
+Tab7:AddLabel("Event Bosses")
+Tab7:AddLabel("Check if the Event is running for The Boss")
 
-Tab8:AddButton({
+Tab7:AddDropdown({
+	Name = "Choose Point",
+	Default = "",
+	Options = {"Abyss Upriser Lv.1000","Chaotic Knight Lv.1250","Alpha Dominus Lv.2500","Alpha Pacifier Lv.4500","Space Alien Lv.12250","Winged Soldier Lv.22500","Orinthian Destroyer Lv.23000","Winter Blaze Lv.28000","Moonlight Lv.28950","Infernus Lv.37800","Scorch Lv.48500","Canyon Ghost Lv.51000"},
+	Callback = function(Value)
+		TeleBoss = Value
+	end
+})
+
+Tab7:AddButton({
+	Name = "Teleport to Boss",
+	Callback = function()
+			if TeleBoss == "Scorch Lv.48500" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-389, 113, 1))
+			elseif TeleBoss == "Winged Soldier Lv.22500" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(649, 37, 996))
+			elseif TeleBoss == "Alpha Pacifier Lv.4500" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(96, 285, 118))
+			elseif TeleBoss == "Space Alien Lv.12250" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-586, 37, 545))
+			elseif TeleBoss == "Winter Blaze Lv.28000" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-690, 134, -28))
+			elseif TeleBoss == "Orinthian Destroyer Lv.23000" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(403, 14, -109))
+			elseif TeleBoss == "Moonlight Lv.28950" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-497, 114, 889))
+			elseif TeleBoss == "Canyon Ghost Lv.51000" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(928, -11, 651))
+			elseif TeleBoss == "Infernus Lv.37800" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(73, -8, 284))
+			elseif TeleBoss == "Abyss Upriser Lv.1000" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-411, 14, 540))
+			elseif TeleBoss == "Chaotic Knight Lv.1250" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(723, 20, -650))
+			elseif TeleBoss == "Alpha Dominus Lv.2500" then
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-871, 81, -614))
+		end
+  	end
+})
+
+--Tab 8 Misc
+getgenv().farmores = false
+
+Tab8:AddSlider({
+	Name = "Change Walk Speed",
+	Min = 16,
+	Max = 300,
+	Default = 16,
+	Color = Color3.fromRGB(0, 0, 0),
+	Increment = 1,
+	ValueName = "Walk Speed",
+	Callback = function(Value)
+		setscriptable(game.Players.LocalPlayer.Character.Humanoid,"WalkSpeed",false)
+		sethiddenproperty(game.Players.LocalPlayer.Character.Humanoid,"WalkSpeed",Value)
+	end
+})
+
+Tab8:AddSlider({
+	Name = "Change Jump Power",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(0, 0, 0),
+	Increment = 1,
+	ValueName = "Jump Power",
+	Callback = function(Value)
+		setscriptable(game.Players.LocalPlayer.Character.Humanoid,"JumpPower",false)
+		sethiddenproperty(game.Players.LocalPlayer.Character.Humanoid,"JumpPower",Value)
+	end
+})
+
+Tab8:AddToggle({
+	Name = "Farm Ores",
+	Default = false,
+	Callback = function(bool)
+		getgenv().farmores = bool
+		if bool then
+			FarmOres()
+		end
+	end
+})
+
+function FarmOres()
+	while wait() do
+		if not getgenv().farmores then break end
+		for i, v in pairs(game:GetService("Workspace")["Parts/Scenary/Terrain"]:GetDescendants()) do
+			if v.Name == "CanMine" and v.Parent then
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0)
+				wait()
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1)
+				wait()
+			end
+		end
+	end
+end
+--Tab 9 Settings
+
+Tab9:AddLabel("Last Update 27.10.22")
+
+Tab9:AddButton({
 	Name = "Destroy Gui!",
 	Callback = function()
         game:GetService("CoreGui").Orion:Destroy()
