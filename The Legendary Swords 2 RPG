@@ -1,6 +1,13 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "The Legendary Swords 2 RPG", HidePremium = false, SaveConfig = true, IntroEnabled = false})
 
+OrionLib:MakeNotification({
+	Name = "Use It At Own Risk",
+	Content = "Last Update 28.10.22",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
 local Tab1 = Window:MakeTab({
 	Name = "Skillpoints",
 	Icon = "rbxassetid://4384392464",
@@ -100,8 +107,6 @@ Tab1:AddButton({
 
 --Tab 2 Stats
 local StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
-local HealthFirst = game.Players.LocalPlayer.PlayerData.Health.Value
-local GoldIncreaseFirst = game.Players.LocalPlayer.PlayerData.GoldIncrease.Value
 local UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
 getgenv().autoMininglvl = false
 
@@ -109,33 +114,27 @@ getgenv().autoMininglvl = false
 Tab2:AddButton({
 	Name = "You get loads of Strength",
 	Callback = function()
-        StrengthFirst = game.Players.LocalPlayer.PlayerData.Strength.Value
-        wait(0.1)
         UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Strength",[2] = "One",[3] = 10000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Strength",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 Tab2:AddButton({
 	Name = "You get loads of Health",
 	Callback = function()
-        HealthFirst = game.Players.LocalPlayer.PlayerData.Health.Value
-        wait(0.1)
         UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Health",[2] = "One",[3] = 10000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Health",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
 Tab2:AddButton({
 	Name = "You get loads of Money gain",
 	Callback = function()
-        GoldIncreaseFirst = game.Players.LocalPlayer.PlayerData.GoldIncrease.Value
-        wait(0.1)
         UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Loot",[2] = "One",[3] = 10000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Loot",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
@@ -524,7 +523,20 @@ function FarmOres()
 end
 --Tab 9 Settings
 
-Tab9:AddLabel("Last Update 27.10.22")
+Tab9:AddLabel("Last Update 28.10.22")
+
+Tab9:AddButton({
+	Name = "Print Update Logs",
+	Callback = function()
+		print("Noclip")
+		print("Added Auto Farm Ores With Fire Touch")
+		print("Chaged Some Values in Stats")
+		print("Added More Weapons in Weapons Tab")
+		print("Fixes in Currency Tab")
+		print("Addded More Teleport Point like Enemys Bosses and World points")
+		print("Added Auto Upgrade Mining LV not more then 7 is needed")
+  	end
+})
 
 Tab9:AddButton({
 	Name = "Destroy Gui!",
