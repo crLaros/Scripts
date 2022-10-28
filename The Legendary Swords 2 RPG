@@ -113,7 +113,7 @@ Tab2:AddButton({
         wait(0.1)
         UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Strength",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Strength",[2] = "One",[3] = 10000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
@@ -124,7 +124,7 @@ Tab2:AddButton({
         wait(0.1)
         UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Health",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Health",[2] = "One",[3] = 10000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
@@ -135,7 +135,7 @@ Tab2:AddButton({
         wait(0.1)
         UpgradePointsFirst = game.Players.LocalPlayer.PlayerData.UpgradePoints.Value
         wait(0.1)
-        local args = {[1] = "Loot",[2] = "One",[3] = 1000000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
+        local args = {[1] = "Loot",[2] = "One",[3] = 10000000000000000,[4] = UpgradePointsFirst}; game:GetService("Players").LocalPlayer.RemoteFunctions.UR_ANTIHACK:FireServer(unpack(args))
   	end
 })
 
