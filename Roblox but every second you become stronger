@@ -36,7 +36,7 @@ function FarmGems()
         end
     end
 end
-
+print("Made By crLaros")
 function AutoRebirth()
     while getgenv().AutoRebirth == true do
         local args = {[1] = "Rebirth"}
