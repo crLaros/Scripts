@@ -1,6 +1,6 @@
 _G.Enabled = true
 --local data = readfile("nframes/owl.txt")
-local data = game:HttpGet("https://www.udrop.com/7FD2/frames.txt")
+local data = game:HttpGet("https://raw.githubusercontent.com/crLaros/Scripts/main/frames.txt")
 
 function update(text)
     local args = {
